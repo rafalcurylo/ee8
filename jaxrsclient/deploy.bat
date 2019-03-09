@@ -1,0 +1,1 @@
+copy target\jaxrs-client.war c:\rafal\jboss\jboss-eap-7.2\standalone\deployments

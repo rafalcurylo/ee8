@@ -8,11 +8,11 @@ import javax.ws.rs.core.Application;
 import java.util.Arrays;
 import java.util.List;
 
-@ApplicationPath("peoples")
+@ApplicationPath("resources")
+@Path("people")
 public class PeopleResource extends Application {
 
     @GET
-    @Path("all")
     @Produces("application/json")
     public List<Person> getAll() {
 
@@ -28,7 +28,13 @@ public class PeopleResource extends Application {
                 .id(2)
                 .build();
 
-        return Arrays.asList(john, ann);
+        Person caren = Person.builder()
+                .firstName("Caren")
+                .lastName("Smith")
+                .id(2)
+                .build();
+
+        return Arrays.asList(john, ann, caren);
     }
 
 }
