@@ -6,13 +6,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
-import javax.ws.rs.core.Application;
 import javax.ws.rs.core.GenericType;
 import java.util.List;
 
-@ApplicationPath("resources")
 @Path("people")
-public class PeopleClient extends Application {
+public class PeopleClient {
 
     @GET
     @Produces("application/json")

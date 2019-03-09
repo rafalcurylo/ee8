@@ -4,7 +4,7 @@ import javax.ejb.Stateless;
 import java.util.Arrays;
 import java.util.List;
 
-//@Stateless
+@Stateless
 public class PeopleService {
 
     public List<Person> getAll() {

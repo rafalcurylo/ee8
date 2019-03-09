@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @XmlRootElement
 @Getter
 @Setter
-
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Person {
 
