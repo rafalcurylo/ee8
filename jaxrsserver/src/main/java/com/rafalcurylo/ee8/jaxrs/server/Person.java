@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDate;
+
 @Getter
 @Setter
 @RequiredArgsConstructor
@@ -14,5 +16,21 @@ public class Person {
     private final long id;
     private final String firstName;
     private final String lastName;
+    private final LocalDate birthday;
+    private final Gender gender;
+
+    public enum Gender {
+
+        MALE("M"),
+        FEMALE("F");
+
+        @Getter
+        private final String shortSymbol;
+
+        Gender(String shortSymbol) {
+            this.shortSymbol = shortSymbol;
+        }
+
+    }
 
 }

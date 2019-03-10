@@ -19,6 +19,7 @@ public class PeopleClient {
         Client client = ClientBuilder.newClient();
         List<Person> list = client.target("http://localhost:8080/jaxrs-server")
                 .path("resources/people")
+                .queryParam("sd", "sd")
                 .request()
                 .get(new GenericType<List<Person>>() {});
 
