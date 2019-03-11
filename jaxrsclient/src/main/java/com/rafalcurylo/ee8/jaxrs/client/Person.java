@@ -15,6 +15,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Person {
 
     @XmlElement
