@@ -15,7 +15,7 @@ public class PeopleService {
                 .lastName("Smith")
                 .id(1)
                 .birthday(LocalDate.of(1982, 11, 22))
-                .gender(Person.Gender.MALE)
+                //.gender(Person.Gender.MALE)
                 .build();
 
         Person ann = Person.builder()

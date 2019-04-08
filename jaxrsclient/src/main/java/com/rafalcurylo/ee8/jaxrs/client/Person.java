@@ -3,49 +3,51 @@ package com.rafalcurylo.ee8.jaxrs.client;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.xml.bind.annotation.*;
-import javax.xml.bind.annotation.adapters.XmlAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
+import javax.json.Json;
+import javax.json.JsonString;
+import javax.json.JsonValue;
+import javax.json.bind.adapter.JsonbAdapter;
+import javax.json.bind.annotation.JsonbProperty;
+import javax.json.bind.annotation.JsonbTypeAdapter;
 import java.time.LocalDate;
 
-@XmlRootElement
 @Getter
 @Setter
-@JsonIgnoreProperties(ignoreUnknown = true)
-
 public class Person {
 
-    @XmlElement
+    @JsonbProperty
     private String firstName;
 
-    @XmlElement
-    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    @JsonbTypeAdapter(LocalDateAdapter.class)
+    @JsonbProperty
     private LocalDate birthday;
 
-    @XmlElement
-    @XmlJavaTypeAdapter(GenderAdapter.class)
+    @JsonbProperty
+    @JsonbTypeAdapter(GenderAdapter.class)
     private Gender gender;
 
-    private static class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
-        public LocalDate unmarshal(String v) {
-            return LocalDate.parse(v);
+    private static class LocalDateAdapter implements JsonbAdapter<LocalDate, JsonValue> {
+        @Override
+        public LocalDate adaptFromJson(JsonValue v) {
+            return LocalDate.parse(((JsonString)v).getString());
         }
 
-        public String marshal(LocalDate v) {
-            return v.toString();
+        @Override
+        public JsonValue adaptToJson(LocalDate v) {
+            return Json.createValue(v.toString());
         }
     }
 
-    private static class GenderAdapter extends XmlAdapter<String, Gender> {
-        public Gender unmarshal(String v) {
-            return Gender.valueOf(v);
+    private static class GenderAdapter implements JsonbAdapter<Gender, JsonValue> {
+        @Override
+        public Gender adaptFromJson(JsonValue v) {
+            String value = ((JsonString)v).getString();
+            return Gender.valueOf(value);
         }
 
-        public String marshal(Gender v) {
-            return v.toString();
+        @Override
+        public JsonValue adaptToJson(Gender v) {
+            return Json.createValue(v.toString());
         }
     }
 
