@@ -49,9 +49,6 @@
                         <manifest>
                             <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
                         </manifest>
-                        <manifestEntries>
-                            <Dependencies>lombok</Dependencies>
-                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>

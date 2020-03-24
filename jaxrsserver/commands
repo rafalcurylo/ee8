@@ -1,0 +1,32 @@
+-THEORY
+-run ubuntu
+-run REST client-server
+-enhance REST client-server and run new version
+
+-THEORY
+    -DOCKERFILE
+
+    -IMAGES:
+        docker images
+        docker image build -t jaxserver:1.1 .
+        docker rmi id
+        docker inspect 2c7df9cd0ab8
+        docker history 2c7df9cd0ab8
+
+    -CONTAINERS:
+        -run
+        docker container run -p 8080:8080 --detach --name jaxserver jaxserver:1.1
+        --detach - run in a background
+        docker container run -p 8080:8080 --name jaxserver jaxserver:1.1
+
+        -list docker containers
+        docker ps -a
+
+        -remove docker container
+        docker rm
+
+        -start stopped container
+        docker start id
+
+-RUN ubuntu
+
