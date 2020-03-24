@@ -18,6 +18,7 @@ public class Person {
     private final String lastName;
     private final LocalDate birthday;
     private final Gender gender;
+    private final String city;
 
     public enum Gender {
 

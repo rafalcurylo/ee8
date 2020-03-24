@@ -14,6 +14,7 @@ public class PeopleService {
                 .firstName("John")
                 .lastName("Smith")
                 .id(1)
+                .city("KRK")
                 .birthday(LocalDate.of(1982, 11, 22))
                 //.gender(Person.Gender.MALE)
                 .build();
