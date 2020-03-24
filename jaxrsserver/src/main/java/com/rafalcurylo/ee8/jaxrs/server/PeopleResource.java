@@ -1,5 +1,7 @@
 package com.rafalcurylo.ee8.jaxrs.server;
 
+import lombok.extern.log4j.Log4j;
+
 import javax.ejb.EJB;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -15,7 +17,7 @@ public class PeopleResource {
     @GET
     @Produces("application/json")
     public List<Person> getAll() {
-
+        System.out.println("getAll");
         return service.getAll();
 
     }

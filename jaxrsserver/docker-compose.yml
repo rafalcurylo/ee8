@@ -1,0 +1,10 @@
+version: "3"
+services:
+  server:
+    image: jaxserver:1.0
+    ports:
+      - "8081:8080"
+  client:
+    image: jaxclient:1.2
+    ports:
+      - "8080:8080"

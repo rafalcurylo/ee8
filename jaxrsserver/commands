@@ -19,6 +19,11 @@
         --detach - run in a background
         docker container run -p 8080:8080 --name jaxserver jaxserver:1.1
 
+        docker container run --network=host -p 8080:8080 --name jaxclient jaxclient:1.0
+
+        https://blog.oddbit.com/post/2014-08-11-four-ways-to-connect-a-docker/
+        https://forums.docker.com/t/how-to-access-docker-container-from-another-machine-on-local-network/4737/9
+
         -list docker containers
         docker ps -a
 
@@ -27,6 +32,9 @@
 
         -start stopped container
         docker start id
+
+    -COMPOSE
+        docker-compose up
 
 -RUN ubuntu
 

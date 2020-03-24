@@ -26,7 +26,7 @@ public class Person {
     @JsonbTypeAdapter(GenderAdapter.class)
     private Gender gender;
 
-    private static class LocalDateAdapter implements JsonbAdapter<LocalDate, JsonValue> {
+    public static class LocalDateAdapter implements JsonbAdapter<LocalDate, JsonValue> {
         @Override
         public LocalDate adaptFromJson(JsonValue v) {
             return LocalDate.parse(((JsonString)v).getString());
@@ -38,7 +38,7 @@ public class Person {
         }
     }
 
-    private static class GenderAdapter implements JsonbAdapter<Gender, JsonValue> {
+    public static class GenderAdapter implements JsonbAdapter<Gender, JsonValue> {
         @Override
         public Gender adaptFromJson(JsonValue v) {
             String value = ((JsonString)v).getString();
