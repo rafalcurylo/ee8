@@ -35,6 +35,8 @@
 
     -COMPOSE
         docker-compose up
+        http://localhost:8080/jaxrs-client/resources/people
+        http://localhost:8081/jaxrs-server/resources/people
 
 -RUN ubuntu
 
